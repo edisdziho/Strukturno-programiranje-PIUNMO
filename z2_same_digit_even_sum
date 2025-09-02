@@ -1,0 +1,49 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+/*Napisati programski kod za unos dvije varijable:
+➢ 𝑛 (cjelobrojna vrijednost za koju važi (𝑛 > 0))
+➢ 𝑥 (cjelobrojna vrijednost za koju važi (𝑥 > 0))
+Program treba da ispiše sve brojeve u opsegu [1, 𝑛] za koje važi sljedeće:
+➢ Sačinjeni su od ponavljanja jedne te iste cifre
+➢ Parni su
+➢ Suma svih cifara je veća ili jednaka od �, za test podatke unesitse N=100 i x=4*/
+bool istaCifra(int broj) {
+	int cifra = broj % 10;
+	while (broj > 0) {
+		if (broj % 10 != cifra)
+			return false;
+		broj /= 10;
+	}
+	return true;
+}
+int suma(int broj) {
+	int suma = 0;
+	while (broj > 0) {
+		suma += broj % 10;
+		broj /= 10;
+	}
+	return suma;
+}
+
+int main() {
+	int n;
+	int x;
+	do {
+		cout << "Unesi cijeli broj N." << endl;
+		cin >> n;
+		cout << "Unesi cijeli broj X." << endl;
+		cin >> x;
+	} while (!(n > 0 && x>0)); {
+		cout << "Brojevi od iste cifre & sume cifara vece od X & parnih: " << endl;
+		for (int i = 1; i < n; i++) {
+			if (istaCifra(i) == true && suma(i)>x && i%2==0) {
+				cout << i << endl;
+			}
+	}
+	}
+
+
+	system("pause>0");
+	return 0;
+}
