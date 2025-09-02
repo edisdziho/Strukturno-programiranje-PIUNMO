@@ -1,0 +1,36 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+/*Napisati programski kod za unos jedne varijable:
+x(cjelobrojna vrijednost za koju važi (x> 0))
+Kreirati funkciju isSorted za provjeru da li su cifre broja x sortirane rastućim redoslijedom.*/
+bool isSorted(int broj) {
+	int cifra = 9;
+	while (broj > 0) {
+		int temp = broj % 10;
+		if (cifra >= temp)
+			cifra = temp;
+		else
+			return false;
+		broj /= 10;
+	}
+	return true;
+}
+int main() {
+	int x;
+	do {
+		cout << "Unesi cijeli broj x" << endl;
+		cin >> x;
+	} while (!(x > 0)); {
+		if (isSorted(x) == true) {
+			cout << "Cifre su sortirane." << endl;
+		}
+		else
+			cout << "Cifre nisu sortirane." << endl;
+			
+	}
+
+
+	system("pause>0");
+	return 0;
+}
