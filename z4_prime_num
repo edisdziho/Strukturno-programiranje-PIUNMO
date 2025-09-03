@@ -1,0 +1,47 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+/*Napišite program u kojem ćete omogućiti unos prirodnog broja. Provjerite je li broj trivijalan (prost) uz pomoć funkcije: bool prost (int);. 
+U slučaju da broj nije trivijalan (prost) odredite i ispište sve njegove djelitelje uz pomoć funkcije: void djelitelji(int);*/
+bool prost(int broj)
+{
+    for (int i = 2; i <= broj / 2; i++)
+        if (broj % i == 0)
+            return false;
+
+    return true;
+}
+
+void djeljitelji(int broj)
+{
+    cout << "Djeljitelji broja " << broj << " su: ";
+    for (int i = 1; i <= broj / 2; i++)
+        if (broj % i == 0)
+            cout << i << " ";
+    cout << "i " << broj << endl;
+}
+
+int main()
+{
+    int broj;
+
+    do
+    {
+        cout << "Unesite prirodan broj: ";
+        cin >> broj;
+    } while (broj < 1);
+
+    if (prost(broj))
+    {
+        cout << "Broj " << broj 
+             << " je trivijalan i njegovi djeljitelji su 1 i " 
+             << broj << endl;
+    }
+    else
+    {
+        djeljitelji(broj);
+    }
+
+    system("pause>0");
+    return 0;
+}
