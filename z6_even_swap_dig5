@@ -1,0 +1,37 @@
+/* Napisati program koji omogućava unos pozitivnog broja n te pronalazi njegove parne cifre i formira novi broj u kojem su parne cifre zamijenjene cifrom 5. 
+Program treba ispisati razliku unesenog i broja koji se dobije nakon zamjene.*/
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int noviBroj(int broj)
+{
+    int i=0;
+    int noviBroj = 0;
+    while (broj)
+    {
+        if ((broj % 10) % 2 == 0)
+            noviBroj+= 5*pow(10, i);
+        else
+            noviBroj+= (broj % 10) * pow(10, i);
+        i++;
+        broj /= 10;
+    }
+    return noviBroj;
+}
+
+int main()
+{
+    int broj;
+    do
+    {
+        cout << "Unesite broj: ";
+        cin >> broj;
+    } 
+    while (broj<=0);
+    int novi = noviBroj(broj);
+    cout << broj << " - " << novi << " = " << broj - novi;
+    system("pause>0");
+    return 0;
+}
